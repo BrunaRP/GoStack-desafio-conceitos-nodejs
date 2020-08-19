@@ -5,8 +5,8 @@ const { uuid } = require('uuidv4');
 
 const app = express();
 
-app.use(json());
-app.use(cors())
+app.use(express.json());
+app.use(cors());
 
 const repositories = [];
 
@@ -91,4 +91,4 @@ app.post('/repositories/:id/like', (request, response) => {
   return response.status(200).send({ likes: repository.likes });
 });
 
-export default app;
+module.exports = app;
